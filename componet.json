@@ -1,5 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema",
+	"$id": "https://newfuture.github.io/miniprogram-json-schema/component.json",
 	"description": "微信小程序 自定义组件 的 schema",
 	"type": "object",
 	"required": ["component"],

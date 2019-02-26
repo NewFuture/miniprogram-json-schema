@@ -1,5 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema",
+	"$id": "https://newfuture.github.io/miniprogram-json-schema/page.json",
 	"description": "微信小程序 page.json 的 schema",
 	"type": "object",
 	"properties": {
