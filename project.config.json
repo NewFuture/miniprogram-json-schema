@@ -24,7 +24,7 @@
 		"condition": {
 			"$id": "#/definitions/condition",
 			"type": "object",
-			"required": ["current", "list"],
+			"required": ["list"],
 			"properties": {
 				"current": {
 					"$id": "#/definitions/condition/properties/current",
