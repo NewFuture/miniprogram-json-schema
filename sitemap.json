@@ -35,33 +35,25 @@
 					},
 					"matching": {
 						"type": "string",
-						"default": {
-							"oneOf": [
-								{
-									"const": "exact",
-									"title": "当小程序页面的参数列表等于 params 时，规则命中"
-								},
-								{
-									"const": "inclusive",
-									"title": "当小程序页面的参数列表包含 params 时，规则命中"
-								},
-								{
-									"const": "exclusive",
-									"title": "当小程序页面的参数列表与 params 交集为空时，规则命中"
-								},
-								{
-									"const": "exclusive",
-									"title": "当小程序页面的参数列表与 params 交集不为空时，规则命中"
-								}
-							]
-						},
-						"enum": [
-							"exact",
-							"inclusive",
-							"exclusive",
-							"partial"
-						],
-						"description": "当 page 字段指定的页面在被本规则匹配时，此参数说明 params 匹配方式"
+						"default": "inclusive",
+						"oneOf": [
+							{
+								"const": "exact",
+								"description": "当小程序页面的参数列表等于 params 时，规则命中"
+							},
+							{
+								"const": "inclusive",
+								"description": "当小程序页面的参数列表包含 params 时，规则命中"
+							},
+							{
+								"const": "exclusive",
+								"description": "当小程序页面的参数列表与 params 交集为空时，规则命中"
+							},
+							{
+								"const": "partial",
+								"description": "当小程序页面的参数列表与 params 交集不为空时，规则命中"
+							}
+						]
 					},
 					"priority": {
 						"type": "number",
