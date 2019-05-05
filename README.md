@@ -1,8 +1,10 @@
 # miniprogram-json-schema
 
-MiniProgram Json Schema tips &amp; validation
+> Json Schema for MiniProgram config files Validation and IntelliSense.
+>
+> 小程序配置文件 json 验证和自动提示 schema
 
-小程序配置文件 json 验证和自动提示 schema
+[![代码自动提示](https://user-images.githubusercontent.com/6290356/57195589-154ac300-6f87-11e9-8933-83d6784d5c2d.gif)](https://github.com/NewFuture/miniprogram-json-schema/issues/4)
 
 ## list
 
