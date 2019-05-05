@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+	"$id": "https://newfuture.github.io/miniprogram-json-schema/sitemap.json",
+	"description": "微信小程序 siitemap.json 的 schema",
+	"type": "object",
+	"properties": {
+	  "rules": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"action": {
+			  "type": "string",
+			  "enum": [
+				"allow",
+				"disallow"
+			  ],
+			  "description": "命中该规则的页面是否能被索引"
+			},
+			"page": {
+			  "type": "string",
+			  "description": "* 表示所有页面，不能作为通配符使用"
+			},
+			"params": {
+			  "type": "array",
+			  "default": [],
+			  "items": {
+				"type": "string"
+			  },
+			  "description": "当 page 字段指定的页面在被本规则匹配时可能使用的页面参数名称的列表（不含参数值）"
+			},
+			"matching": {
+			  "type": "string",
+			  "default": "inclusive",
+			  "description": "当 page 字段指定的页面在被本规则匹配时，此参数说明 params 匹配方式"
+			},
+			"priority": {
+			  "type": "number",
+			  "description": "优先级，值越大则规则越早被匹配，否则默认从上到下匹配"
+			}
+		  },
+		  "required": [
+			"page"
+		  ]
+		},
+		"description": "索引规则列表"
+	  }
+	},
+	"required": [
+	  "rules"
+	]
+  }
