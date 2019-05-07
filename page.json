@@ -23,7 +23,7 @@
 			"type": "string",
 			"enum": ["default", "custom"],
 			"default": "default",
-			"description": "导航栏样式,微信客户端 6.6.0"
+			"description": "导航栏样式,微信客户端 7.0.0"
 		},
 		"backgroundColor": {
 			"type": "string",
@@ -43,7 +43,7 @@
 		},
 		"backgroundColorBottom": {
 			"type": "string",
-			"description": "底部窗口的背景色，仅 iOS 支持微信客户端 6.5.16",
+			"description": "底部窗口的背景色，仅 iOS 支持,微信客户端 6.5.16",
 			"default": "#ffffff"
 		},
 		"enablePullDownRefresh": {
