@@ -164,14 +164,16 @@
 					"type": "boolean",
 					"title": "The Nodemodules Schema",
 					"default": false,
-					"examples": [true]
+					"examples": [true],
+					"description": "是否使用npm包"
 				},
 				"autoAudits": {
 					"$id": "#/properties/setting/properties/autoAudits",
 					"type": "boolean",
 					"title": "The Autoaudits Schema",
 					"default": false,
-					"examples": [false]
+					"examples": [false],
+					"description": "是否自动开启性能评分"
 				},
 				"uglifyFileName": {
 					"$id": "#/properties/setting/properties/uglifyFileName",
@@ -180,6 +182,44 @@
 					"default": false,
 					"examples": [false],
 					"description": "是否进行代码保护"
+				},
+				"checkSiteMap": {
+					"type": "boolean",
+					"default": true,
+					"description": "是否打开SiteMap索引提示"
+				},
+				"coverView": {
+					"type": "boolean",
+					"description": "是否使用工具渲染 CoverView"
+				},
+				"enhance": {
+					"type": "boolean",
+					"description": "是否打开增强编译"
+				},
+				"babelSetting": {
+					"type": "object",
+					"properties": {
+						"outputPath": {
+							"type": "string",
+							"description": "Babel 辅助函数的输出目录",
+							"default": "@babel/runtime"
+						},
+						"ignore": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"description": "跳过Babel编译(包括代码压缩)处理的文件或目录"
+							},
+							"description": "文件或目录"
+						}
+					},
+					"description": "增强编译下Babel的配置项",
+					"required": []
+				},
+				"uploadWithSourceMap": {
+					"type": "boolean",
+					"default": true,
+					"description": "上传时是否带上 sourcemap"
 				}
 			},
 			"description": "项目设置"
