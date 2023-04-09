@@ -18,6 +18,10 @@
 		"pages": {
 			"$ref": "#/definitions/pages"
 		},
+		"entryPagePath": {
+			"type":"string",
+			"description": "小程序默认启动首页"
+		},
 		"window": {
 			"type": "object",
 			"properties": {
@@ -236,10 +240,32 @@
 			"description": "申明需要后台运行的能力，类型为数组",
 			"uniqueItems": true
 		},
+		"requiredPrivateInfos": {
+			"type": "array",
+			"description": "调用的地理位置相关隐私接口,自 2022 年 7 月 14 日后发布的小程序，使用8个地理位置相关接口时，需要声明该字段，否则将无法正常使用。2022 年 7 月 14 日前发布的小程序不受影响",
+			"items": {
+				"type": "string",
+				"enum": [
+					"getFuzzyLocation",
+					"getLocation",
+					"onLocationChange",
+					"startLocationUpdate",
+					"startLocationUpdateBackground",
+					"chooseLocation",
+					"choosePoi",
+					"chooseAddress"
+				]
+			}
+		},
 		"plugins": {
 			"type": "object",
 			"default": {},
 			"description": "引入插件代码包",
+			"properties": {}
+		},
+		"preloadRule": {
+			"description": "声明分包预下载的规则。基础库 2.3.0 开始支持",
+			"type": "object",
 			"properties": {}
 		},
 		"resizable": {
@@ -264,6 +290,122 @@
 			"type": "object",
 			"properties": {},
 			"description": "小程序接口权限相关设置,微信客户端 7.0.0"
+		},
+		"sitemapLocation": {
+			"type": "string",
+			"description": "指明 sitemap.json 的位置"
+		},
+		"style": {
+			"type": "string",
+			"description": "指定使用升级后的weui样式"
+		},
+		"useExtendedLib": {
+			"type": "object",
+			"description": "指定需要引用的扩展库"
+		},
+		"entranceDeclare": {
+			"type": "object",
+			"description": "微信消息用小程序打开",
+			"additionalProperties": {
+				"type": "object",
+				"properties": {
+					"path": {
+						"type": "string"
+					},
+					"query": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"darkmode": {
+			"type": "boolean",
+			"description": "小程序支持 DarkMode"
+		},
+		"themeLocation": {
+			"type": "string",
+			"description": "指明 theme.json 的位置，darkmode为true为必填"
+		},
+		"lazyCodeLoading": {
+			"type": "string",
+			"description": "配置自定义组件代码按需注入",
+			"enum": [
+				"requiredComponents"
+			]
+		},
+		"singlePage": {
+			"type": "object",
+			"description": "单页模式相关配置",
+			"properties": {
+				"navigationBarFit": {
+					"type": "string",
+					"enum": [
+						"float",
+						"squeezed"
+					],
+					"description": "导航栏与页面的相交状态，值为 float 时表示导航栏浮在页面上，与页面相交；值为 squeezed 时表示页面被导航栏挤压，与页面不相交"
+				}
+			}
+		},
+		"embeddedAppIdList": {
+			"type": "array",
+			"description": "半屏小程序 appId",
+			"items": {
+				"type": "string"
+			}
+		},
+		"halfPage": {
+			"type": "object",
+			"description": "视频号直播半屏场景设置",
+			"properties": {
+				"firstPageNavigationStyle": {
+					"type": "string",
+					"description": "视频号直播打开的第一个页面的全屏状态使用自定义顶部，支持 default / custom",
+					"enum": [
+						"default",
+						"custom"
+					]
+				}
+			}
+		},
+		"debugOptions": {
+			"type": "object",
+			"description": "调试相关配置",
+			"properties": {
+				"enableFPSPanel": {
+					"type": "boolean",
+					"description": "是否开启 FPS 面板"
+				}
+			}
+		},
+		"enablePassiveEvent": {
+			"type": "object",
+			"description": "touch 事件监听是否为 passive",
+			"properties": {
+				"touchstart": {
+					"type": "boolean",
+					"description": "是否设置 touchstart 事件为 passive"
+				},
+				"touchmove": {
+					"type": "boolean",
+					"description": "是否设置 touchmove 事件为 passive"
+				},
+				"wheel": {
+					"type": "boolean",
+					"description": "是否设置 wheel 事件为 passive"
+				}
+			}
+		},
+		"resolveAlias": {
+			"type": "object",
+			"description": "自定义模块映射规则",
+			"properties": {
+
+			}
+		},
+		"renderer": {
+			"type": "string",
+			"description": "全局默认的渲染后端"
 		}
 	},
 	"required": [
