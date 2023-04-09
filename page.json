@@ -25,6 +25,11 @@
 			"default": "default",
 			"description": "导航栏样式,微信客户端 7.0.0"
 		},
+		"homeButton":{
+			"type":"boolean",
+			"default":false,
+			"description": "在非首页、非页面栈最底层页面或非tabbar内页面中的导航栏展示home键"
+		},
 		"backgroundColor": {
 			"type": "string",
 			"default": "#ffffff",
@@ -64,7 +69,7 @@
 		},
 		"disableScroll": {
 			"type": "boolean",
-			"description": "设置为 true 则页面整体不能上下滚动。 只在页面配置中有效",
+			"description": "设置为 true 则页面整体不能上下滚动。只在页面配置中有效，无法在 app.json 中设置",
 			"default": false
 		},
 		"disableSwipeBack": {
@@ -75,7 +80,57 @@
 		"usingComponents": {
 			"type": "object",
 			"properties": {},
-			"description": "页面自定义组件配置"
+			"description": "页面自定义组件配置",
+			"default":"否"
+		},
+		"initialRenderingCache":{
+			"type":"string",
+			"default":"",
+			"enum": [
+				"static",
+				"dynamic"
+			],
+			"description": "页面初始渲染缓存配置，支持 static / dynamic"
+		},
+		"style":{
+			"type":"string",
+			"default":"default",
+			"description": "启用新版的组件样式"
+		},
+		"singlePage":{
+			"type":"object",
+			"default":"否",
+			"description": "单页模式相关配置"
+		},
+		"restartStrategy":{
+			"type":"string",
+			"default":"homePage",
+			"description": "重新启动策略配置"
+		},
+		"handleWebviewPreload":{
+			"type":"string",
+			"default":"static",
+			"enum": [
+				"static",
+				"manual",
+				"auto"
+			],
+			"description": "控制预加载下个页面的时机。支持 static / manual / auto"
+		},
+		"visualEffectInBackground":{
+			"type":"string",
+			"enum": [
+				"hidden",
+				"none"
+			],
+			"description": "切入系统后台时，隐藏页面内容，保护用户隐私。支持 hidden / none，若对页面单独设置则会覆盖全局的配置，详见 全局配置"
+		},
+		"enablePassiveEvent":{
+			"type":["object","boolean"],
+			"description": "事件监听是否为 passive，若对页面单独设置则会覆盖全局的配置，详见 全局配置"
+		},
+		"renderer":{
+			"type":"string"
 		}
 	}
 }
